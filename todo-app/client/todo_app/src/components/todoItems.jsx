@@ -7,25 +7,24 @@ import 'react-quill/dist/quill.snow.css';
 import TodoModal from './todoModal';
 import DOMPurify from 'dompurify';
 
-const TodoItems = () => {
+const TodoItems = ({todos, setTodos}) => {
     
-    const [todos, setTodos] = useState([]);
+    //const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-    const fetchTodos = async () => {
+    // const fetchTodos = async () => {
 
-        try {
-        const response = await fetch('http://localhost:1337/api/todos');
-        const data = await response.json();
+    //     try {
+    //     const response = await fetch('http://localhost:1337/api/todos');
+    //     const data = await response.json();
 
-        const todosData = data.data;
+    //     const todosData = data.data;
 
-        setTodos(todosData);
-        } catch (error) {
-        console.error('Error fetching todos:', error);
-        }
-    };  
-    fetchTodos();
+    //     setTodos(todosData);
+    //     } catch (error) {
+    //     console.error('Error fetching todos:', error);
+    //     }
+    // };  
     }, []);
     const handleDelete = async (id) => {
     try {

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import Quill's CSS for the default theme
 
-const TodoForm = ({ onSubmit }) => {
+const TodoForm = ({ onSubmit, refetch }) => {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
   const [deadline, setDeadline] = useState('');
@@ -20,7 +20,7 @@ const TodoForm = ({ onSubmit }) => {
         todo_status: false,
         todo_deadline: `${deadline}T00:00:00.000Z`,
       },
-    };
+    }; 
 
     try {
       // Send a POST request to the API with the form data
@@ -40,7 +40,7 @@ const TodoForm = ({ onSubmit }) => {
       setTitle('');
       setDesc('');
       setDeadline('');
-
+      refetch();
       // Call the onSubmit prop to notify the parent component about the new todo
       onSubmit(formData.data);
     } catch (error) {
