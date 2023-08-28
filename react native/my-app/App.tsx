@@ -9,7 +9,7 @@ import SignInWithOAuth from './src/components/SignInWithOauth'
 import * as SecureStore from "expo-secure-store";
 
 //key should be in env but meh i dont care
-const publishableKey = "pk_test_Y2hhcm1lZC1iYXNpbGlzay04OC5jbGVyay5hY2NvdW50cy5kZXYk";
+const publishableKey = process.env.EXPO_PUBLIC_PUBLISHABLE_KEY;
 
 type currentPageWidget = {
 	currentPage?: string
