@@ -10,6 +10,7 @@ export default function Nav({ navigation }) {
       >
         <Text style={styles.buttonText}>Home</Text>
       </TouchableOpacity>
+	  <Text style={styles.buttonText}>|</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('Profile')}
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#29274C',
     marginRight: 20,
+	marginLeft: 20,
   },
   buttonText: {
     color: '#fff',
