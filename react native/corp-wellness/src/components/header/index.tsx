@@ -17,7 +17,7 @@ export default function Header() {
       <TouchableOpacity onPress={() => setShowSignOut(true)}>
         <Image
           source={{
-            uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
+            uri: user.imageUrl,
             height: 66,
             width: 66,
           }}
@@ -26,6 +26,7 @@ export default function Header() {
       </TouchableOpacity>
       {showSignOut && (
         <View style={styles.signOutContainer}>
+		  <Text>Signed in as {user.emailAddresses[0]?.emailAddress}</Text>
           <Text>Do you want to sign out?</Text>
           <View style={styles.buttonContainer}>
             <Button
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
   },
   signOutContainer: {
     position: 'absolute',
-    top: 130, 
+    top: 180, 
     right: 2,
     backgroundColor: 'white',
     padding: 10,

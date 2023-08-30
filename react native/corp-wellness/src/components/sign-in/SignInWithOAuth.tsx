@@ -11,7 +11,7 @@ const SignInWithOAuth = () => {
   // https://docs.expo.dev/guides/authentication/#improving-user-experience
   useWarmUpBrowser();
  
-  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+  const { startOAuthFlow } = useOAuth({ strategy: "oauth_google"});
  
   const onPress = React.useCallback(async () => {
     try {
