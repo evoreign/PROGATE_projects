@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "corp_wellness",
-    "slug": "corp_wellness",
+    "name": "corp-wellness",
+    "slug": "corp-wellness",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
