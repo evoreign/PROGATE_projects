@@ -1,6 +1,6 @@
 // Library import 
-import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-expo'
-import { StyleSheet, Text, View, SafeAreaView, StatusBar} from 'react-native'
+import { ClerkProvider, SignedIn, SignedOut, useAuth } from '@clerk/clerk-expo'
+import { StyleSheet, Text, View, SafeAreaView, StatusBar, Button} from 'react-native'
 import * as SecureStore from "expo-secure-store";
 
 //  Component import
@@ -31,6 +31,23 @@ const tokenCache = {
   },
 };
 
+const SignOut = () => {
+  const { isLoaded,signOut } = useAuth();
+  if (!isLoaded) {
+    return null;
+  }
+  return (
+    <View>
+      <Button
+        title="Sign Out"
+        onPress={() => {
+          signOut();
+        }}
+      />
+    </View>
+  );
+};
+
 export default function App() {
 	return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
@@ -42,6 +59,7 @@ export default function App() {
             <Header />
             <Progress />
             <Schedule />
+            <SignOut/>
             <Nav/>
             {/* modal here incoming */}
           </View>
