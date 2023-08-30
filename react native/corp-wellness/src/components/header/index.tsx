@@ -13,13 +13,13 @@ export default function Header() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.greetText}>Hello, {user.firstName}</Text>
+      <Text style={styles.greetText}>Hello, {user.firstName}!</Text>
       <TouchableOpacity onPress={() => setShowSignOut(true)}>
         <Image
           source={{
             uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-            height: 56,
-            width: 56,
+            height: 66,
+            width: 66,
           }}
           style={styles.profileImage}
         />
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   greetText: {
     color: '#29274C',
     fontSize: 28,
-    fontWeight: '700',
+    fontWeight: 'bold',
   },
   profileImage: {
     borderColor: '#E7E6F0',
