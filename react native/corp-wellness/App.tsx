@@ -31,22 +31,22 @@ const tokenCache = {
   },
 };
 
-const SignOut = () => {
-  const { isLoaded,signOut } = useAuth();
-  if (!isLoaded) {
-    return null;
-  }
-  return (
-    <View>
-      <Button
-        title="Sign Out"
-        onPress={() => {
-          signOut();
-        }}
-      />
-    </View>
-  );
-};
+// const SignOut = () => {
+//   const { isLoaded,signOut } = useAuth();
+//   if (!isLoaded) {
+//     return null;
+//   }
+//   return (
+//     <View>
+//       <Button
+//         title="Sign Out"
+//         onPress={() => {
+//           signOut();
+//         }}
+//       />
+//     </View>
+//   );
+// };
 
 export default function App() {
 	return (
@@ -59,7 +59,7 @@ export default function App() {
             <Header />
             <Progress />
             <Schedule />
-            <SignOut/>
+            {/* <SignOut/> */}
             <Nav/>
             {/* modal here incoming */}
           </View>
