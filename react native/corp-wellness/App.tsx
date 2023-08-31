@@ -56,8 +56,10 @@ export default function App() {
         
         {/* This is for the signed in user */}
         <SignedIn>
+          
           <View style={styles.container}>
             <Header />
+            <Text style={styles.greetText}>Your Progress</Text>
             <Progress />
             <Schedule />
             {/* <SignOut/> */}
@@ -86,4 +88,10 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		paddingHorizontal:16
 	},
+  greetText: {
+    color: '#29274C',
+    fontSize: 20,
+    fontWeight: 'bold',
+    left: -115,
+  },
 })

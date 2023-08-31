@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
   greetText: {
     color: '#29274C',
     fontSize: 28,
+    left: 10,
     fontWeight: 'bold',
   },
   profileImage: {
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   },
   signOutContainer: {
     position: 'absolute',
-    top: 180, 
+    top: 100, 
     right: 2,
     backgroundColor: 'white',
     padding: 10,
