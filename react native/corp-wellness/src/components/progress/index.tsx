@@ -1,19 +1,18 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
+import { StyleSheet, View, FlatList } from 'react-native';
 import { Card, Title, Paragraph } from 'react-native-paper';
 
 interface CardData {
-  progress: number;
   title: string;
   description: string;
 }
 
 const Progress: React.FC = () => {
   const cardData: CardData[] = [
-    { progress: 1/20, title: 'Working Hours', description: 'Working hours exceeded by 3 hours' },
-    { progress: 1/20, title: 'Your Efficiency', description: 'Excellent result' },
-    { progress: 1/20, title: 'Card 3', description: 'Description 3' },
-    { progress: 1/20, title: 'Card 4', description: 'Description 4' },
+    { title: 'Working Hours', description: 'Working hours exceeded by 3 hours' },
+    { title: 'Your Efficiency', description: 'Excellent result' },
+    { title: 'Card 3', description: 'Description 3' },
+    { title: 'Card 4', description: 'Description 4' },
   ];
 
   // Define an array of colors for the cards
@@ -21,17 +20,20 @@ const Progress: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView horizontal showsHorizontalScrollIndicator={true}>
-        {cardData.map((card, index) => (
+      <FlatList
+        data={cardData}
+        horizontal
+        showsHorizontalScrollIndicator={true}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item, index }) => (
           <Card key={index} style={[styles.card, { backgroundColor: cardColors[index] }]}>
             <Card.Content>
-              <Title style={styles.card_title}>{card.progress}</Title>
-              <Title style={styles.card_title}>{card.title}</Title>
-              <Paragraph style={styles.card_description}>{card.description}</Paragraph>
+              <Title style={styles.card_title}>{item.title}</Title>
+              <Paragraph style={styles.card_description}>{item.description}</Paragraph>
             </Card.Content>
           </Card>
-        ))}
-      </ScrollView>
+        )}
+      />
     </View>
   );
 };
@@ -52,12 +54,10 @@ const styles = StyleSheet.create({
   card_title: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#E7E6F0'
   },
   card_description: {
     paddingTop: 10,
     fontSize: 16,
-    color: '#E7E6F0'
   },
 });
 
