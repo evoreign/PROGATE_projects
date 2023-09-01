@@ -51,8 +51,10 @@ export default function Header() {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    flex: 1,
-    backgroundColor: '#fff',
+    paddingTop: 40,
+    paddingBottom: 30,
+    flex: 0,
+    //backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
   },
   signOutContainer: {
     position: 'absolute',
-    top: 100, 
+    top: 10, 
     right: 2,
     backgroundColor: 'white',
     padding: 10,

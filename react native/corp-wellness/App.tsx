@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     color: '#29274C',
     fontSize: 20,
     fontWeight: 'bold',
+    paddingBottom: 10,
     left: -115,
   },
 })
