@@ -1,0 +1,11 @@
+import React from 'react'
+import { Button, Text, View } from 'react-native'
+
+const MessageSentModal = ({ modal: { closeModal }}) => (
+  <View>
+    <Text>Your message was sent!</Text>
+    <Button onPress={closeModal} title="OK" />
+  </View>
+)
+
+export default MessageSentModal

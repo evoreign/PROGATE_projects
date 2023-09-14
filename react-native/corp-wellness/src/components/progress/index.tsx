@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 import { Card, Title, Paragraph } from 'react-native-paper';
-
+import { useModal } from 'react-native-modalfy'
 interface CardData {
   title: string;
   description: string;
@@ -17,7 +17,8 @@ const Progress: React.FC = () => {
 
   // Define an array of colors for the cards
   const cardColors = ['#F66C62', '#FFD565', '#FFD565', '#FFD565'];
-
+  const  { openModal } = useModal()
+  const SendMessage=()=> openModal('MessageSentModal')
   return (
     <View style={styles.container}>
       <FlatList
@@ -26,7 +27,7 @@ const Progress: React.FC = () => {
         showsHorizontalScrollIndicator={true}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => (
-          <Card key={index} style={[styles.card, { backgroundColor: cardColors[index] }]}>
+          <Card key={index} style={[styles.card, { backgroundColor: cardColors[index] }]} onPress={SendMessage}>
             <Card.Content>
               <Title style={styles.card_title}>{item.title}</Title>
               <Paragraph style={styles.card_description}>{item.description}</Paragraph>

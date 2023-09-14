@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
 import { useUser, useAuth } from "@clerk/clerk-expo";
+import { useModal } from 'react-native-modalfy'
 
 export default function Header() {
   const { isLoaded, isSignedIn, user } = useUser();
   const [showSignOut, setShowSignOut] = useState(false);
   const { signOut } = useAuth();
-
+//modal here
+  const  { openModal } = useModal()
+  const SendMessage=()=> openModal('LogoutModal')
   if (!isLoaded || !isSignedIn) {
     return null;
   }
@@ -14,7 +17,7 @@ export default function Header() {
   return (
     <View style={styles.container}>
       <Text style={styles.greetText}>Hello, {user.firstName}!</Text>
-      <TouchableOpacity onPress={() => setShowSignOut(true)}>
+      <TouchableOpacity onPress={() => SendMessage()}>
         <Image
           source={{
             uri: user.imageUrl,
